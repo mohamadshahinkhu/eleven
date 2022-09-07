@@ -1,6 +1,19 @@
-<p class="text-2xl m-5">here is the sign up form</p>
-<form [formGroup]="form">
-<input class="border m-2 focus:outline-none p-1 rounded-sm border-black" type="text" formControlName="username">
-<input class="border m-2 focus:outline-none p-1 rounded-sm border-black" type="password" formControlName="password">
-<input class="border m-2 focus:outline-none p-1 rounded-sm border-black" type="password" formControlName="passwordconfirmation">
+<div class="flex justify-center w-3/6">
+    <p class="text-2xl mt-10">here is the sign up form</p>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col w-3/6 m-10">
+    <p class="ml-3 text-lg font-bold">username</p>
+    <input class="border m-2 focus:outline-none p-1 rounded-sm h-12 border-black" placeholder="enter username"
+        type="text" formControlName="username">
+    <p class="ml-3 text-lg font-bold">password</p>
+    <input class="border m-2 focus:outline-none p-1 rounded-sm h-12 border-black" placeholder="enter your password"
+        type="password" formControlName="password">
+    <p class="ml-3 text-lg font-bold">re-enter pasword</p>
+    <input class="border m-2 focus:outline-none p-1 rounded-sm h-12 border-black" placeholder="re-enter your password"
+        type="password" formControlName="passwordconfirmation">
+    <button type="submit"
+        class="w-32 h-12 border border-black ml-12 rounded-lg focus:outline-none bg-emerald-500 font-bold">
+        submit
+    </button>
 </form>
+{{form.errors | json}}
