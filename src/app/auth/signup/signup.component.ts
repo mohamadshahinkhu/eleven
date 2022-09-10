@@ -16,7 +16,10 @@ export class SignupComponent implements OnInit {
     {
       validators: [this.matchpassword.validate]
     }
-  )
+  );
+  get f() {
+    return this.form.controls
+  }
 
   constructor(private matchpassword: MatchpasswordService) { }
   onSubmit() {
@@ -24,5 +27,4 @@ export class SignupComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
 }
