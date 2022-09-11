@@ -6,6 +6,16 @@
     <app-input [control]="f.password" label="password" placeholder="please enter password" type="password"></app-input>
     <app-input [control]="f.passwordconfirmation" label="passwordconfirmation" placeholder="please re-enter password"
         type="password"></app-input>
+        <ng-container *ngIf="showErrorPasswordDontMatch()">
+            <div
+              class="w-32 h-5 border border-black bg-red-300"
+              style="margin-bottom: 5px;"
+              *ngIf="form.hasError('passwordDontMatch')"
+            >
+              please enter the same password
+            </div>
+          </ng-container>
+
     <button type="submit"
         class="w-32 h-12 border border-black ml-12 rounded-lg focus:outline-none bg-emerald-500 font-bold">
         submit

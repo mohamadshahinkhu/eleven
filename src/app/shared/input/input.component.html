@@ -1,3 +1,39 @@
 <p class="ml-3 text-lg font-bold">{{label}}</p>
 <input class="border m-2 focus:outline-none p-1 w-3/6 rounded-sm h-12 border-black" [placeholder]="placeholder"
     type="text" [formControl]="control">
+    <ng-container *ngIf="showErrors()">
+        <div
+          class="ui pointing red basic label"
+          *ngIf="control.hasError('required')"
+        >
+          please enter this value
+        </div>
+        <div
+          class="ui pointing red basic label"
+          *ngIf="control.hasError('minlength')"
+        >
+          minLenght is {{ control.errors?.['minlength']?.requiredLength }} and your char
+          is {{ control.errors?.['minlength']?.actualLength }}
+        </div>
+        <div
+          class="ui pointing red basic label"
+          *ngIf="control.hasError('maxlenght')"
+        >
+          maxLenght is {{ control.errors?.['maxLength'].requiredLength }} and your char
+          is {{ control.errors?.['maxlenght'].actualLength }}
+        </div>
+    
+        <div
+          class="ui pointing red basic label"
+          *ngIf="control.hasError('nonUniqueUsername')"
+        >
+          this username is already taken
+        </div>
+    
+        <div
+          class="ui pointing red basic label"
+          *ngIf="control.hasError('unknownError')"
+        >
+          unknown error
+        </div>
+      </ng-container>

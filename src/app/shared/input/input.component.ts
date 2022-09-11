@@ -9,12 +9,15 @@ import { FormControl } from '@angular/forms';
 export class InputComponent implements OnInit {
   @Input() label = "";
   @Input() control : FormControl = null!;
-  @Input() type = "";
+  @Input() type = "password";
   @Input() placeholder = "";
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+    showErrors () {
+      const { errors, dirty, touched } = this.control;
+      return errors && dirty && touched;
+  
   }
-
 }
